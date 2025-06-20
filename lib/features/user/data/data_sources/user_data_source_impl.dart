@@ -12,13 +12,12 @@ import 'package:resume/features/user/data/models/user_info_model.dart';
 import 'package:resume/features/user/data/models/user_skills_model.dart';
 import 'package:resume/features/user/data/models/studies_model.dart';
 
+const _firebaseKey = String.fromEnvironment('FIRESTORE_DATABASE_ID');
+
 class UserDataSourceImpl implements UserDataSource {
   final db = FirebaseFirestore.instanceFor(
     app: Firebase.app(),
-    databaseId:
-        kDebugMode
-            ? dotenv.env['FIRESTORE_DATABASE_ID']
-            : String.fromEnvironment('FIRESTORE_DATABASE_ID'),
+    databaseId: kDebugMode ? dotenv.env['FIRESTORE_DATABASE_ID'] : _firebaseKey,
   );
 
   @override
