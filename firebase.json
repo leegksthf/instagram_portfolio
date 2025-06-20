@@ -1,0 +1,30 @@
+{
+  "flutter": {
+    "platforms": {
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "instagram-resume",
+          "configurations": {
+            "web": "1:270634291004:web:6a03292f591e5293479839"
+          }
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "instagram-resume",
+          "appId": "1:270634291004:ios:43d7281922780d7b479839",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      }
+    }
+  },
+  "hosting": {
+    "headers": [
+      {
+        "source": "**",
+        "headers": [{ "key": "Access-Control-Allow-Origin", "value": "*" }]
+      }
+    ]
+  }
+}
