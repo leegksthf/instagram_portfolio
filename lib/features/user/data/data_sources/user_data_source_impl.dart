@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:resume/features/user/data/data_sources/user_data_source.dart';
 import 'package:resume/features/user/data/models/experience_model.dart';
@@ -14,7 +15,10 @@ import 'package:resume/features/user/data/models/studies_model.dart';
 class UserDataSourceImpl implements UserDataSource {
   final db = FirebaseFirestore.instanceFor(
     app: Firebase.app(),
-    databaseId: dotenv.env['FIRESTORE_DATABASE_ID'],
+    databaseId:
+        kDebugMode
+            ? dotenv.env['FIRESTORE_DATABASE_ID']
+            : String.fromEnvironment('FIRESTORE_DATABASE_ID'),
   );
 
   @override

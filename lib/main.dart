@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -12,6 +13,8 @@ void main() async {
 
 Future<void> _initializeApp() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: '.env');
+  if (kDebugMode) {
+    await dotenv.load(fileName: '.env');
+  }
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 }
