@@ -44,7 +44,7 @@ class Splash extends HookConsumerWidget {
             final isSvgFile =
                 Uri.parse(image!).path.split('/').last.split('.').last == 'svg';
             if (isSvgFile) {
-              final loader = SvgAssetLoader(image);
+              final loader = SvgNetworkLoader(image);
               svg.cache.putIfAbsent(
                 loader.cacheKey(null),
                 () => loader.loadBytes(null),
